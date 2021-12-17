@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <function model="ir.config_parameter" name="set_param" eval="('account.group_order_tcs', True)"/>
+
+        <record id="base.user_admin1" model="res.users">
+            <field name="groups_id" eval="[(4, ref('product.group_discount_per_so_line')), (4, ref('account_tds.group_order_tcs'))]"/>
+        </record>
+    </data>
+</odoo>

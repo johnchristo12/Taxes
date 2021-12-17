@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="tcs_management_tree" model="ir.ui.view">
+        <field name="name">tcs.management.tree</field>
+        <field name="model">tcs.management</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="tcs_type"/>
+                <field name="tcs_percentage"/>
+                <field name="tcs_account"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tcs_management_form" model="ir.ui.view">
+        <field name="name">tcs.management.form</field>
+        <field name="model">tcs.management</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="tcs_account"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="tcs_type"/>
+                        </group>
+                        <group>
+                            <field name="tcs_percentage"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tcs_management_action" model="ir.actions.act_window">
+        <field name="name">TCS Management</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tcs.management</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="tcs_management_config_menu"
+              name="TCS"
+              parent="account.menu_finance_configuration"
+              sequence="4"/>
+
+    <menuitem id="tcs_management_menu"
+              name="TCS"
+              parent="tcs_management_config_menu"
+              action="tcs_management_action"
+              sequence="10"/>
+</odoo>
