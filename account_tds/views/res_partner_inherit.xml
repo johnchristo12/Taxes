@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="res_partner_inherit">
+        <field name="name">res.partner.inherit12</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form/sheet/notebook/page[@name='sales_purchases']/group[@name='container_row_2']/group[@name='sale']" position="after">
+                <group string="TDS" groups="account_tds.group_order_tds">
+                    <field name="applicable_tds" groups="account_tds.group_order_tds"/>
+                    <field name="tds_section" attrs="{'invisible': [('applicable_tds', '=', False)]}" groups="account_tds.group_order_tds"/>
+                    <field name="tds_type" attrs="{'invisible': [('applicable_tds', '=', False)]}" groups="account_tds.group_order_tds"/>
+                    <field name="tds_percentage" attrs="{'invisible': [('applicable_tds', '=', False)]}" groups="account_tds.group_order_tds"/>
+                    <field name="tds_account" attrs="{'invisible': [('applicable_tds', '=', False)]}" groups="account_tds.group_order_tds"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

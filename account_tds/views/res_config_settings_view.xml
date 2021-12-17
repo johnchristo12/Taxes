@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_account_config" model="ir.ui.view">
+            <field name="name">res.config.settings.form.inherit.discount</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='analytic']" position="after">
+                    <h2>TDS</h2>
+                    <div class="row mt16 o_settings_container" id="tds_task">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="group_order_tds"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="group_order_tds"/>
+                                <div class="text-muted">
+                                    Collect TDS from Vendor
+                                </div>
+                                <div class="content-group"
+                                     attrs="{'invisible': [('group_order_tds', '=', False)]}">
+                                    <div class="mt16">
+                                        <label for="account_tds" invisible="1"/>
+                                        <field name="account_tds" invisible="1" class="oe_inline"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

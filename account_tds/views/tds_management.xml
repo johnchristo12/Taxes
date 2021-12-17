@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="tds_management_tree" model="ir.ui.view">
+        <field name="name">tds.management.tree</field>
+        <field name="model">tds.management</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="tds_type"/>
+                <field name="tds_percentage"/>
+                <field name="tds_account"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tds_management_form" model="ir.ui.view">
+        <field name="name">tds.management.form</field>
+        <field name="model">tds.management</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="tds_account"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="tds_type"/>
+                        </group>
+                        <group>
+                            <field name="tds_percentage"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="tds_management_action" model="ir.actions.act_window">
+        <field name="name">TDS Management</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tds.management</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="tds_management_config_menu"
+              name="TDS"
+              parent="account.menu_finance_configuration"
+              sequence="4"/>
+
+    <menuitem id="tds_management_menu"
+              name="TDS"
+              parent="tds_management_config_menu"
+              action="tds_management_action"
+              sequence="10"/>
+</odoo>
